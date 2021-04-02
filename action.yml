@@ -6,5 +6,5 @@ outputs:
 runs:
   using: 'composite'
   steps:
-    - run: echo "Doing stuff" && echo "::set-output name=result::1234"
+    - run: echo "Doing stuff" && echo "::set-output name=result::1234" && echo "Done doing stuff"
       shell: bash
