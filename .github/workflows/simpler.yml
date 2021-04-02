@@ -1,0 +1,20 @@
+on:
+  push:
+    branches:
+      - simpler
+
+jobs:
+  main_job:
+    runs-on: ubuntu-latest
+    name: Simpler Job
+    steps:
+      - uses: actions/checkout@v2
+      - name: Simpler Dummy Step
+        id: dummy
+        run: echo "::set-output name=result::9999"
+      - id: failure
+        if: ${{ steps.dummy.outputs.result != 0 }}
+        run: echo "Something went wrong" && exit 1
+      - id: success
+        if: ${{ steps.dummy.outputs.result == 0 }}
+        run: echo "Build result ${{ steps.dummy.outputs.result }}"
