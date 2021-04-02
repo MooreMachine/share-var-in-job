@@ -6,5 +6,5 @@ outputs:
 runs:
   using: 'composite'
   steps:
-    - run: echo "Doing stuff" && echo "::set-output name=result::1234" && echo "Done doing stuff" && echo "This is your output ${{ steps.dummy.outputs.result }}"
+    - run: something=1234 && echo "$something" && echo "Doing stuff" && echo "::set-output name=result::$something" && echo "Done doing stuff" && echo "This is your output ${{ steps.dummy.outputs.result }}"
       shell: bash
