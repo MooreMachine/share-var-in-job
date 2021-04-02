@@ -3,8 +3,10 @@ description: 'A sample GitHub Action'
 outputs:
   result:
     description: 'A result that is propagated between steps in the job'
+    value: ${{ steps.dostuff.outputs.result }}
 runs:
   using: 'composite'
   steps:
+    - id: dostuff
     - run: echo "::set-output name=result::4321"
       shell: bash
