@@ -12,7 +12,7 @@ jobs:
         with:
           submodules: recursive
       - name: Dummy Step
-        id: dummmy
+        id: dummy
         uses: ./ # Use action in root directory
       - id: failure
         if: ${{ steps.dummy.outputs.result != 0 }}
