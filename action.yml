@@ -8,5 +8,5 @@ runs:
   using: 'composite'
   steps:
     - id: dostuff
-    - run: echo "::set-output name=result::4321"
+      run: echo "::set-output name=result::4321"
       shell: bash
