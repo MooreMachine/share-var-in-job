@@ -1,0 +1,10 @@
+name: 'My Action'
+description: 'A sample GitHub Action'
+outputs:
+  result:
+    description: 'A result that is propagated between steps in the job'
+runs:
+  using: 'composite'
+  steps:
+    - run: echo "::set-output name=result::1234"
+      shell: bash

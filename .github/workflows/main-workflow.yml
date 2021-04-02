@@ -1,0 +1,22 @@
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  main_job:
+    runs-on: ubuntu-latest
+    name: Main Job
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: Dummy Step
+        id: dummmy
+        uses: ./ # Use action in root directory
+      - id: failure
+        if: ${{ steps.dummy.outputs.result != 0 }}
+        run: echo "Something went wrong" && exit 1
+      - id: success
+        if: ${{ steps.dummy.outputs.result == 0 }}
+        run: echo "Build result ${{ steps.dummy.outputs.result }}"
