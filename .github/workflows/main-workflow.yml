@@ -14,6 +14,7 @@ jobs:
       - name: Dummy Step
         id: dummy
         uses: ./ # Use action in root directory
+        run: echo "This is your output ${{ steps.dummy.outputs.result }}"
       - id: failure
         if: ${{ steps.dummy.outputs.result != 0 }}
         run: echo "Something went wrong" && exit 1
