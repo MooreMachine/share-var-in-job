@@ -2,11 +2,11 @@ name: 'My Action'
 description: 'A sample GitHub Action'
 outputs:
   result:
-    description: 'A result that is propagated between steps in the job'
+    description: 'Share this result with other steps in the same job'
     value: ${{ steps.dostuff.outputs.result }}
 runs:
   using: 'composite'
   steps:
     - id: dostuff
-      run: echo "::set-output name=result::4321"
+      run: echo "::set-output name=result::1234"
       shell: bash
