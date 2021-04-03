@@ -16,7 +16,7 @@ jobs:
         uses: ./.github/actions # Use action in actions directory
       - id: failure
         if: ${{ steps.dummy.outputs.result != 0 }}
-        run: echo "Something went wrong. Exit code ${{ steps.dummy.outputs.result}" && exit 1
+        run: echo "Something went wrong. Exit code ${{ steps.dummy.outputs.result }}" && exit 1
       - id: success
         if: ${{ steps.dummy.outputs.result == 0 }}
         run: echo "Build result ${{ steps.dummy.outputs.result }}"
